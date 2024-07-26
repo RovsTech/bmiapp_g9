@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:math';
+
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +23,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double height = 100;
-  double weight = 100;
+  double weight = 75;
+  double bmi = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -122,14 +125,22 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: Color(
                   0xffccff33,
                 )),
-                onPressed: () {},
+                onPressed: () {
+
+                  bmi = weight / pow(height/100, 2);
+                  setState(() {
+
+                  });
+
+
+                },
               ),
             ),
             SizedBox(
               height: 20.0,
             ),
             Text(
-              "23.5",
+              bmi.toStringAsFixed(1),
               style: TextStyle(
                 fontSize: 44.0,
                 fontWeight: FontWeight.bold,
@@ -153,7 +164,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               child: Image.asset(
-                "assets/images/obesidad3.png",
+                "assets/images/normal.png",
                 //height: 250,
 
               ),
