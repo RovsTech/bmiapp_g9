@@ -151,10 +151,12 @@ class _HomePageState extends State<HomePage> {
                 fontSize: 16.0,
               ),
             ),
-            Image.asset(
-              "assets/images/normal.png",
-              height: 300,
+            Expanded(
+              child: Image.asset(
+                "assets/images/obesidad3.png",
+                //height: 250,
 
+              ),
             ),
           ],
         ),
