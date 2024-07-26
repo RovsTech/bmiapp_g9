@@ -20,7 +20,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   double height = 100;
   double weight = 100;
 
@@ -58,15 +57,11 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
-            ),
-                  Text(
-                    "cm",
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal
-                    ),
-                  ),
-
+                ),
+                Text(
+                  "cm",
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                ),
               ],
             ),
             Slider(
@@ -75,10 +70,8 @@ class _HomePageState extends State<HomePage> {
               max: 220,
               activeColor: Color(0xffd00000),
               onChanged: (double value) {
-                height=value;
-                setState(() {
-
-                });
+                height = value;
+                setState(() {});
               },
             ),
             Text(
@@ -101,10 +94,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Text(
                   "kg",
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal
-                  ),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
                 ),
               ],
             ),
@@ -114,40 +104,36 @@ class _HomePageState extends State<HomePage> {
               max: 220,
               activeColor: Color(0xff4f772d),
               onChanged: (double value) {
-                weight=value;
-                setState(() {
-
-                });
+                weight = value;
+                setState(() {});
               },
             ),
             SizedBox(
               height: 20.0,
             ),
-
-
             SizedBox(
               height: 52.0,
               width: 200.0,
               child: ElevatedButton(
-                child: Text("Calcular",),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffccff33,)
+                child: Text(
+                  "Calcular",
                 ),
-                onPressed: (){
-                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(
+                  0xffccff33,
+                )),
+                onPressed: () {},
               ),
             ),
             SizedBox(
               height: 20.0,
             ),
-
             Text(
               "23.5",
               style: TextStyle(
                 fontSize: 44.0,
                 fontWeight: FontWeight.bold,
               ),
-
             ),
             Text(
               "Normal",
@@ -164,6 +150,11 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.black54,
                 fontSize: 16.0,
               ),
+            ),
+            Image.asset(
+              "assets/images/normal.png",
+              height: 300,
+
             ),
           ],
         ),
