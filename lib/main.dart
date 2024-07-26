@@ -27,6 +27,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.pink,
+        centerTitle: true,
+        title: Text("Calcular IMC",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
 
     );
   }
