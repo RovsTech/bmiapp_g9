@@ -1,14 +1,11 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main (){
+void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +15,6 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -30,14 +26,25 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.pink,
         centerTitle: true,
-        title: Text("Calcular IMC",
+        title: Text(
+          "Calcular IMC",
           style: TextStyle(
             color: Colors.white,
           ),
         ),
       ),
+      body: Column(
+        children: [
+          Slider(
+            value: 150,
+            min: 40,
+            max: 200,
+            onChanged: (double value) {
 
+            },
+          ),
+        ],
+      ),
     );
   }
 }
-
