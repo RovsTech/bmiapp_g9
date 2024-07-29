@@ -1,6 +1,7 @@
 import 'dart:math';
 
 //import 'package:flutter/cupertino.dart';
+import 'package:bmiapp/bmi_calculate.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,6 +29,41 @@ class _HomePageState extends State<HomePage> {
   String result = "Normal";
   String comment = "Peso Correcto, Sigue Cuidandote";
   String images = "imagen";
+
+ void calculate(){
+    bmi = weight / pow(height / 100, 2);
+    if (bmi < 18) {
+      result = "Bajo Peso";
+      comment = "Debes alimentarte mejor y hacer Ejercicios";
+      images = "assets/images/muy delgado.png";
+    } else if (bmi <= 25) {
+      result = "Peso Ideal";
+      comment = "Estás en el Peso Correcto, Sigue Cuidandote";
+      images = "assets/images/normal.png";
+    } else if (bmi <= 30) {
+      result = "Estás con SOBRE PESO";
+      comment =
+      "Debes cuidar tu Alimentación y empezar a Ejercitarte";
+      images = "assets/images/imagen sobrepeso.png";
+    } else if (bmi <= 35) {
+      result = "Estás con Obesidad tipo 1";
+      comment =
+      "Acude a un especialista y Comienza a Ejercitarte";
+      images = "assets/images/obesidad1.png";
+    } else if (bmi <= 40) {
+      result = "Estás con Obesidad tipo 2";
+      comment = "Preocupante, acude a un especialista";
+      images = "assets/images/obesidad2.jpg";
+    } else {
+      result = "Estás con Obesidad tipo 3";
+      comment =
+      "Estado Muy preocupante, Urgente acude a un especialista ";
+      images = "assets/images/obesidad3.png";
+    }
+
+    setState(() {});
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -135,38 +171,12 @@ class _HomePageState extends State<HomePage> {
                   0xffccff33,
                 )),
                 onPressed: () {
-                  bmi = weight / pow(height / 100, 2);
+                  calculate();
 
-                  if (bmi < 18) {
-                    result = "Bajo Peso";
-                    comment = "Debes alimentarte mejor y hacer Ejercicios";
-                    images = "assets/images/muy delgado.png";
-                  } else if (bmi <= 25) {
-                    result = "Peso Ideal";
-                    comment = "Estás en el Peso Correcto, Sigue Cuidandote";
-                    images = "assets/images/normal.png";
-                  } else if (bmi <= 30) {
-                    result = "Estás con SOBRE PESO";
-                    comment =
-                        "Debes cuidar tu Alimentación y empezar a Ejercitarte";
-                    images = "assets/images/imagen sobrepeso.png";
-                  } else if (bmi <= 35) {
-                    result = "Estás con Obesidad tipo 1";
-                    comment =
-                        "Acude a un especialista y Comienza a Ejercitarte";
-                    images = "assets/images/obesidad1.png";
-                  } else if (bmi <= 40) {
-                    result = "Estás con Obesidad tipo 2";
-                    comment = "Preocupante, acude a un especialista";
-                    images = "assets/images/obesidad2.jpg";
-                  } else {
-                    result = "Estás con Obesidad tipo 3";
-                    comment =
-                        "Estado Muy preocupante, Urgente acude a un especialista ";
-                    images = "assets/images/obesidad3.png";
-                  }
+                  BMICalculate bmicalculate = BMICalculate(height: height, weight: weight);
 
-                  setState(() {});
+                  print(bmicalculate.getBMI());
+                  print(bmicalculate.getResult());
                 },
               ),
             ),
