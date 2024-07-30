@@ -173,10 +173,11 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   calculate();
 
-                  BMICalculate bmicalculate = BMICalculate(height: height, weight: weight);
+                  BMICalculate bmicalculate = BMICalculate(height, weight);
 
                   print(bmicalculate.getBMI());
                   print(bmicalculate.getResult());
+                 // bmicalculate.
                 },
               ),
             ),
